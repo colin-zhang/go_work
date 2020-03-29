@@ -7,7 +7,7 @@ import (
 
 func ExeCommand(commandStr string) string {
 	commands := "echo hello"
-	cmd := exec.Command("/bin/bash", "-c", commands)
+	cmd := exec.CommandContext(nil,"/bin/bash", "-c", commands)
 	if output, err := cmd.CombinedOutput(); err != nil {
 		return err.Error()
 	} else {
